@@ -12,5 +12,7 @@ public class Contact {
         this.email = email;
     }
 
-    public void addPhoneNumber(){}
+    public void addPhoneNumber(){
+        System.out.println("000000000");
+    }
 }

@@ -7,8 +7,6 @@ public class Driver {
 
         String[] commandHistory;
 
-
-
     }
 
     public static void New() {

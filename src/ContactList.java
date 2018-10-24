@@ -7,7 +7,10 @@ public class ContactList {
         this.contacts = new ArrayList<Contact>();
     }
 
-    public  void addContact(Contact con){}
+    public  void addContact(Contact con){
+
+
+    }
 
     public Contact find(String term){return null;}
 

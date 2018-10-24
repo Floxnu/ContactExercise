@@ -13,6 +13,5 @@ public class Contact {
     }
 
     public void addPhoneNumber(){
-        System.out.println("000000000");
     }
 }

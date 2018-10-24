@@ -13,6 +13,11 @@ public class ContactList {
 
     public void list(){}
 
-    public void showInfo(int index){}
+    public void showInfo(int index)
+    {
+        Contact currentContact = contacts.get(index);
+
+        System.out.printf("Name: %s %s%nEmail: %s%n", currentContact.getFirstName(), currentContact.getLastName(), currentContact.getEmail());
+    }
 
 }

@@ -14,9 +14,17 @@ public class InputCollector {
         String email = in.next();
         System.out.println("Please enter your phone number.");
         long phoneNum = in.nextLong();
+
+        inputForPrompt(firstName);
+        inputForPrompt(lastName);
+        inputForPrompt(email);
+        inputForPrompt(Long.toString(phoneNum));
     }
 
-    public String inputForPrompt(String prompt){ return null; }
+
+    public String inputForPrompt(String prompt){
+        return inputForPrompt(prompt);
+    }
 
 }
-//add push commit
+//add commit push

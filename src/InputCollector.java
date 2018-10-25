@@ -5,25 +5,14 @@ public class InputCollector {
 
     public InputCollector() {
         this.in = new Scanner(System.in);
-
-        System.out.println("Please enter your first name.");
-        String firstName = in.next();
-        System.out.println("Please enter your last name.");
-        String lastName = in.next();
-        System.out.println("Please enter your email address.");
-        String email = in.next();
-        System.out.println("Please enter your phone number.");
-        long phoneNum = in.nextLong();
-
-        inputForPrompt(firstName);
-        inputForPrompt(lastName);
-        inputForPrompt(email);
-        inputForPrompt(Long.toString(phoneNum));
     }
 
 
     public String inputForPrompt(String prompt){
-        return inputForPrompt(prompt);
+        //Print promt
+        System.out.print(prompt);
+        //return user input
+        return in.next();
     }
 
 }

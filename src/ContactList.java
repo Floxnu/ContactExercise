@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 
 public class ContactList {
+
     private ArrayList<Contact> contacts;
+
+
 
     public ContactList() {
         this.contacts = new ArrayList<Contact>();
@@ -9,6 +12,7 @@ public class ContactList {
 
     public  void addContact(Contact con){
 
+        contacts.add(con);
 
     }
 
@@ -20,7 +24,7 @@ public class ContactList {
     {
         Contact currentContact = contacts.get(index);
 
-        System.out.printf("Name: %s %s%nEmail: %s%n", currentContact.getFirstName(), currentContact.getLastName(), currentContact.getEmail());
+        System.out.printf("Name: %s %nEmail: %s%n", currentContact.getFullName(), currentContact.getEmail());
     }
 
 }

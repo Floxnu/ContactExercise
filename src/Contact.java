@@ -1,34 +1,24 @@
 import java.util.Map;
 
 public class Contact {
-    private String firstName;
-    private String lastName;
+    private String fullName;
     private String email;
     private Map<String, Integer> phoneNumbers;
 
-    public Contact(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Contact(String fullName, String email) {
+        this.fullName = fullName;
         this.email = email;
     }
 
     public void addPhoneNumber(){
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {

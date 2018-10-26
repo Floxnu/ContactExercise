@@ -16,7 +16,13 @@ public class ContactList {
 
     }
 
-    public Contact find(String term){return null;}
+    public void find(String search){
+        for(int i = 0; i < contacts.size(); i++) {
+            if (contacts.get(i).getFullName().contains(search) || contacts.get(i).getEmail().contains(search)) {
+                showInfo(i);
+            }
+        }
+    }
 
     public void list(){}
 

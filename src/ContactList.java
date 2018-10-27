@@ -24,7 +24,13 @@ public class ContactList {
         }
     }
 
-    public void list(){}
+    public void list(int list) {
+        this.contacts = contacts.get(list);
+
+        for (int i = 0; i < contacts.length; i++) {
+            System.out.printf(i + ": " + "Name: %s", list.get(i));
+        }
+    }
 
     public void showInfo(int index)
     {

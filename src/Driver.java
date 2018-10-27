@@ -72,6 +72,9 @@ public class Driver {
                     validCommand = false;
                     quit();
                     break;
+                case "phone":
+
+                    break;
                 default:
                     System.out.println("Invalid command");
                     validCommand = true;
@@ -91,15 +94,18 @@ public class Driver {
     }
 
     public static void find() {
-
+        contactsList.find(input.inputForPrompt("Enter term to search: "));
     }
 
     public static void quit(){
-
+        System.exit(0);
     }
 
     public static void history(){
 
     }
 
+    public static void addPhone() {
+
+    }
 }

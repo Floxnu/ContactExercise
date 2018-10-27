@@ -12,7 +12,7 @@ public class InputCollector {
         //Print promt
         System.out.print(prompt);
         //return user input
-        return in.next();
+        return in.nextLine();
     }
 
 }

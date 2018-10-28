@@ -1,19 +1,30 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class Contact {
     private String fullName;
     private String email;
-    private Map<String, Float> phoneNumbers;
+    private Map<String, String> phoneNumbers;
 
-    public Contact(String fullName, String email) {
+    public Contact(String fullName, String email, String phoneType, String number) {
         this.fullName = fullName;
         this.email = email;
-    }
-
-    public void addPhoneNumber(String phoneType, float number){
+        this.phoneNumbers = new HashMap<>();
         phoneNumbers.put(phoneType, number);
-
     }
+
+
+    public void addPhoneNumber(String phoneType, String number){
+        this.phoneNumbers.put(phoneType, number);
+    }
+
+    public void outputNumbers(){
+        for (Map.Entry<String, String> num: phoneNumbers.entrySet()){
+            System.out.printf("%s: %s%n",num.getKey(), num.getValue());
+        }
+    }
+
+
 
     public String getFullName() {
         return fullName;

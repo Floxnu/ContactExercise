@@ -153,8 +153,27 @@ public class Driver {
         if (addQuestion.equalsIgnoreCase("Y")){
             currentContact = contactsList.getContactAtIndex(index);
             String phoneType = input.inputForPrompt("Enter your phone Type: ");
-            String num = input.inputForPrompt("Enter your phone number: ");
+            boolean notValidInput = true;
+            Long longCheck = Long.valueOf(0);
+            while (notValidInput){
+                try{
+                    longCheck = Long.parseLong(input.inputForPrompt("Enter your phone number: "));
+                    if(longCheck.toString().contains(".") || longCheck.toString().length() > 15 || longCheck.toString().length() < 3)
+                    {
+                        System.out.println("Invalid number.");
+                        notValidInput = true;
+                    } else {
+                        notValidInput = false;
+                    }
+                } catch (Exception e){
+                    System.out.println("Invalid input.");
+                    notValidInput = true;
+                }
+            }
+
+            String num = longCheck.toString();
             currentContact.addPhoneNumber(phoneType, num);
+            System.out.println("Number added successfully");
         }
     }
 }

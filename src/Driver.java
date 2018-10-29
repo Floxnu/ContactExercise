@@ -23,60 +23,69 @@ public class Driver {
     public static void New() {
         String fullName = input.inputForPrompt("Enter name: ");
         String email = input.inputForPrompt("Enter email: ");
-        String phoneType = input.inputForPrompt("Enter your phone type: ");
-        String number = input.inputForPrompt("Enter your phone number: ");
 
 
         Contact person = new Contact(fullName, email);
+
         contactsList.addContact(person);
     }
 
     public static void MainMenu()
     {
         boolean validCommand = false;
+        System.out.println(" ");
         System.out.println("Main Menu:");
         System.out.println("1. new");
         System.out.println("2. list");
         System.out.println("3. show");
-        System.out.println("3. find");
-        System.out.println("4. history");
-        System.out.println("5. quit");
+        System.out.println("4. find");
+        System.out.println("5. add phone");
+        System.out.println("5. history");
+        System.out.println("6. quit");
 
         do {
             String in = input.inputForPrompt("command: ").toLowerCase();
             switch (in) {
                 case "new":
+                case "1":
                     commandHistory.add(in);
                     validCommand = false;
                     New();
                     break;
-//                case "list":
-//                    commandHistory.add(in);
-//                    validCommand = false;
-//                    list();
-//                    break;
+               case "list":
+                case "2":
+                   commandHistory.add(in);
+                   validCommand = false;
+                   list();
+                   break;
                 case "show":
+                case "3":
                     commandHistory.add(in);
                     validCommand = false;
                     show();
                     break;
                 case "find":
+                case "4":
                     commandHistory.add(in);
                     validCommand = false;
                     find();
                     break;
                 case "history":
-                    commandHistory.add(in);
+                case "6":
                     validCommand = false;
                     history();
                     break;
                 case "quit":
+                case "7":
                     commandHistory.add(in);
                     validCommand = false;
                     quit();
                     break;
-                case "phone":
-
+                case "add phone":
+                case "5":
+                    commandHistory.add(in);
+                    validCommand = false;
+                    addPhone();
                     break;
                 default:
                     System.out.println("Invalid command");
@@ -87,17 +96,28 @@ public class Driver {
 
     public static void show()
     {
-        int index = Integer.parseInt(input.inputForPrompt("Contact index:")) - 1;
+        int index = -1;
+        boolean validIndex = true;
+        do {
+            try {
+                index = Integer.parseInt(input.inputForPrompt("Contact index:")) - 1;
+                validIndex = false;
+            } catch (Exception e)
+            {
+                System.out.println("Not a valid index.");
+            }
+        } while(validIndex);
         contactsList.showInfo(index);
     }
 
 
-//    public static void list(){
-//        contactsList.list();
-//    }
+    public static void list(){
+        contactsList.list();
+    }
 
     public static void find() {
         contactsList.find(input.inputForPrompt("Enter term to search: "));
+
     }
 
     public static void quit(){
@@ -105,10 +125,36 @@ public class Driver {
     }
 
     public static void history(){
-
+        for(int i = commandHistory.size() -1; i > commandHistory.size() - 4; i--)
+        {
+            if(i>=0)
+            {
+                System.out.println(commandHistory.get(i));
+            }
+        }
+        commandHistory.add("history");
     }
 
     public static void addPhone() {
-
+        int index = -1;
+        boolean validIndex = true;
+        do {
+            try {
+                index = Integer.parseInt(input.inputForPrompt("Contact index:")) - 1;
+                validIndex = false;
+            } catch (Exception e)
+            {
+                System.out.println("Not a valid index.");
+            }
+        } while(validIndex);
+        Contact currentContact;
+        contactsList.showInfo(index);
+        String addQuestion = input.inputForPrompt("Do you want to add number? Y/N ");
+        if (addQuestion.equalsIgnoreCase("Y")){
+            currentContact = contactsList.getContactAtIndex(index);
+            String phoneType = input.inputForPrompt("Enter your phone Type: ");
+            String num = input.inputForPrompt("Enter your phone number: ");
+            currentContact.addPhoneNumber(phoneType, num);
+        }
     }
 }

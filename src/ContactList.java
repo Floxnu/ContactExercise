@@ -3,24 +3,32 @@ import java.util.ArrayList;
 public class ContactList {
 
     private ArrayList<Contact> contacts;
-
+    static InputCollector input;
+    private Contact currentContact;
 
 
     public ContactList() {
 
         this.contacts = new ArrayList<Contact>();
-<<<<<<< HEAD
 
         contacts.add(new Contact("Juan Valencia", "juanjvalenciagd@gmail.com"));
         contacts.add(new Contact("Derrik Park", "someemail@email.com"));
         contacts.add(new Contact("Petri Kauritsalo", "gd48petri@vfs.com"));
         contacts.add(new Contact("Pedro D'Andrea", "gd48pedro@vfs.com"));
-=======
->>>>>>> function1
+
+        input = new InputCollector();
+
     }
 
     public  void addContact(Contact con){
 
+        for (Contact c: contacts) {
+            if(c.getEmail().equalsIgnoreCase(con.getEmail()))
+            {
+                System.out.println("Contact already exists.");
+                return;
+            }
+        }
         contacts.add(con);
 
     }
@@ -33,30 +41,45 @@ public class ContactList {
         }
     }
 
-<<<<<<< HEAD
-    public void list() {
+
+    public void list(){
         Contact current;
         for (int i = 0; i < contacts.size(); i++) {
             current = contacts.get(i);
             System.out.printf("%d: %s%n",i+1, current.getFullName());
-=======
->>>>>>> function1
+
         }
     }
 
-//    public void list(int list) {
-//        this.contacts = contacts.get(list);
-//
-//        for (int i = 0; i < contacts.length; i++) {
-//            System.out.printf(i + ": " + "Name: %s", list.get(i));
-//        }
-//    }
 
     public void showInfo(int index)
     {
-        Contact currentContact = contacts.get(index);
+        boolean inRange = true;
+        boolean validIndex = true;
+        do {
+            if (index <= contacts.size() && index >= 0) {
+                currentContact = contacts.get(index);
 
-        System.out.printf("Name: %s %nEmail: %s%n%n", currentContact.getFullName(), currentContact.getEmail());
+                System.out.printf("Name: %s %nEmail: %s%n", currentContact.getFullName(), currentContact.getEmail());
+                currentContact.outputNumbers();
+                return;
+            } else if (index < 0){
+                System.out.println("Index starts at 1");
+                validIndex = true;
+            } else {
+                System.out.println("NOT registered");
+                validIndex = true;
+            }
+        while(validIndex){
+            try {
+                index = Integer.parseInt(input.inputForPrompt("Contact index:")) - 1;
+                validIndex = false;
+            } catch (Exception e)
+            {
+                System.out.println("Not a valid index.");
+            }
+        }
+        }while (inRange);
     }
 
     public Contact getContactAtIndex(int index)

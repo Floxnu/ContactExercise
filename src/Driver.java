@@ -23,6 +23,9 @@ public class Driver {
     public static void New() {
         String fullName = input.inputForPrompt("Enter name: ");
         String email = input.inputForPrompt("Enter email: ");
+        String phoneType = input.inputForPrompt("Enter your phone type: ");
+        String number = input.inputForPrompt("Enter your phone number: ");
+
 
         Contact person = new Contact(fullName, email);
         contactsList.addContact(person);
@@ -47,11 +50,11 @@ public class Driver {
                     validCommand = false;
                     New();
                     break;
-                case "list":
-                    commandHistory.add(in);
-                    validCommand = false;
-                    list();
-                    break;
+//                case "list":
+//                    commandHistory.add(in);
+//                    validCommand = false;
+//                    list();
+//                    break;
                 case "show":
                     commandHistory.add(in);
                     validCommand = false;
@@ -89,9 +92,9 @@ public class Driver {
     }
 
 
-    public static void list(){
-        contactsList.list();
-    }
+//    public static void list(){
+//        contactsList.list();
+//    }
 
     public static void find() {
         contactsList.find(input.inputForPrompt("Enter term to search: "));

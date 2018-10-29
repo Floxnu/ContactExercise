@@ -48,25 +48,25 @@ public class Driver {
             switch (in) {
                 case "new":
                 case "1":
-                    commandHistory.add(in);
+                    commandHistory.add("new");
                     validCommand = false;
                     New();
                     break;
                case "list":
                 case "2":
-                   commandHistory.add(in);
+                   commandHistory.add("list");
                    validCommand = false;
                    list();
                    break;
                 case "show":
                 case "3":
-                    commandHistory.add(in);
+                    commandHistory.add("show");
                     validCommand = false;
                     show();
                     break;
                 case "find":
                 case "4":
-                    commandHistory.add(in);
+                    commandHistory.add("find");
                     validCommand = false;
                     find();
                     break;
@@ -77,13 +77,13 @@ public class Driver {
                     break;
                 case "quit":
                 case "7":
-                    commandHistory.add(in);
+                    commandHistory.add("quit");
                     validCommand = false;
                     quit();
                     break;
                 case "add phone":
                 case "5":
-                    commandHistory.add(in);
+                    commandHistory.add("add phone");
                     validCommand = false;
                     addPhone();
                     break;

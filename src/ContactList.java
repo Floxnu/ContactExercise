@@ -7,7 +7,13 @@ public class ContactList {
 
 
     public ContactList() {
+
         this.contacts = new ArrayList<Contact>();
+
+        contacts.add(new Contact("Juan Valencia", "juanjvalenciagd@gmail.com"));
+        contacts.add(new Contact("Derrik Park", "someemail@email.com"));
+        contacts.add(new Contact("Petri Kauritsalo", "gd48petri@vfs.com"));
+        contacts.add(new Contact("Pedro D'Andrea", "gd48pedro@vfs.com"));
     }
 
     public  void addContact(Contact con){
@@ -24,11 +30,11 @@ public class ContactList {
         }
     }
 
-    public void list(int list) {
-        this.contacts = contacts.get(list);
-
-        for (int i = 0; i < contacts.length; i++) {
-            System.out.printf(i + ": " + "Name: %s", list.get(i));
+    public void list() {
+        Contact current;
+        for (int i = 0; i < contacts.size(); i++) {
+            current = contacts.get(i);
+            System.out.printf("%d: %s%n",i+1, current.getFullName());
         }
     }
 

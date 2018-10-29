@@ -40,8 +40,8 @@ public class Driver {
         System.out.println("3. show");
         System.out.println("4. find");
         System.out.println("5. add phone");
-        System.out.println("5. history");
-        System.out.println("6. quit");
+        System.out.println("6. history");
+        System.out.println("7. quit");
 
         do {
             String in = input.inputForPrompt("command: ").toLowerCase();
